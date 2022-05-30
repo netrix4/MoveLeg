@@ -17,7 +17,6 @@ namespace MoveLegRef
     {
         private SeleccionMenu _seleccionMenu = new SeleccionMenu();
 
-
         public MoveLegMain()
         {
             InitializeComponent();
@@ -28,7 +27,6 @@ namespace MoveLegRef
             await Task.Delay(4000);
 
             this.Hide();
-
             _seleccionMenu.Show();
         }
     }
