@@ -1,0 +1,72 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Bussines\SocketService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Logo MoveLeg.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Bussines\SocketService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Iconos\Logo MoveLeg.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\Iconos\Icono.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Icono.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Imagenes\AyudasVisuales.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AyudasVisuales.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Imagenes\LogoMoveLeg.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>LogoMoveLeg.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Imagenes\ImagenesContenido.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ImagenesContenido.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Iconos\Icono.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Icono.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Imagenes\AyudasVisuales.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AyudasVisuales.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Imagenes\LogoMoveLeg.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LogoMoveLeg.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Imagenes\ImagenesContenido.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ImagenesContenido.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
