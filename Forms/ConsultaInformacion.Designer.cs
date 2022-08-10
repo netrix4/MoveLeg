@@ -200,7 +200,7 @@ namespace MoveLegRef.Forms
             // 
             // btnResultados
             // 
-            this.btnResultados.Location = new System.Drawing.Point(12, 386);
+            this.btnResultados.Location = new System.Drawing.Point(432, 386);
             this.btnResultados.Name = "btnResultados";
             this.btnResultados.Size = new System.Drawing.Size(75, 23);
             this.btnResultados.TabIndex = 9;

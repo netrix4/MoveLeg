@@ -20,16 +20,14 @@ namespace MoveLegRef.Forms
         private ServiceResponse<List<Sesion>> _sesionesResponse = new ServiceResponse<List<Sesion>>();
         private ServiceResponse<List<Resultados>> _resultadosResponse = new ServiceResponse<List<Resultados>>();
 
-
         public ConsultaPaciente()
         {
             InitializeComponent();
             _pacienteService = new PacienteService();
             _sesionService = new SesionService();
             _resultadosService = new ResultadosService();
-
-    }
-    private void ConsultaPaciente_Load(object sender, EventArgs e)
+        }
+        private void ConsultaPaciente_Load(object sender, EventArgs e)
         {
             _pacientesResponse = _pacienteService.ObtenerListaDePacientes();
 
@@ -67,7 +65,7 @@ namespace MoveLegRef.Forms
             if (dgvSesiones.SelectedRows.Count > 0)
             {
                 var selectedRow = dgvSesiones.SelectedRows[0];
-                var selectedSesionID = Convert.ToInt32( selectedRow.Cells["IDSesion"].Value);
+                var selectedSesionID = Convert.ToInt32(selectedRow.Cells["IDSesion"].Value);
 
                 //Siempre busca el IDSesion numero 4 (dentro de servicio) para que siempre encuentr una sesion, ergo, un resultado
                 //gracias al metodo de prueba fijo
@@ -87,7 +85,16 @@ namespace MoveLegRef.Forms
 
         private void btnDetalleResultados_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Test");
+            HistogramaResultados histogramaResultados = new HistogramaResultados();
+            if (_resultadosResponse.IsOk && _resultadosResponse.Data.Count !=0)
+            {
+                histogramaResultados = new HistogramaResultados(_resultadosResponse.Data[0]);
+                histogramaResultados.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Cargue resultados primero");
+            }
         }
     }
 }

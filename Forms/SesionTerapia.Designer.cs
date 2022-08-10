@@ -562,11 +562,11 @@ namespace MoveLegRef.Forms
             // lblSesionET
             // 
             this.lblSesionET.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblSesionET.Location = new System.Drawing.Point(72, 34);
+            this.lblSesionET.Location = new System.Drawing.Point(20, 32);
             this.lblSesionET.Name = "lblSesionET";
-            this.lblSesionET.Size = new System.Drawing.Size(108, 33);
+            this.lblSesionET.Size = new System.Drawing.Size(220, 33);
             this.lblSesionET.TabIndex = 0;
-            this.lblSesionET.Text = "0:0:0";
+            this.lblSesionET.Text = "00:00:00";
             this.lblSesionET.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // gbSensacion

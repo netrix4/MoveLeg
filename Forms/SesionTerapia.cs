@@ -37,7 +37,7 @@ namespace MoveLegRef.Forms
                 minutos = 0;
             }
 
-            lblSesionET.Text = horas.ToString() + " : " + minutos.ToString() + " : " + segundos.ToString();
+            lblSesionET.Text = horas.ToString("D2") + ":" + minutos.ToString("D2") + ":" + segundos.ToString("D2");
         }
     }
 }

@@ -15,6 +15,9 @@ namespace MoveLegRef.Forms
         private GenerarSesion _GenerarSesion;
         private SesionTerapia _SesionTerapia;
         private ConsultaPaciente _ConsultaPaciente;
+        private HistogramaResultados _HistogramaResultados;
+        private CompararResultados _CompararResultados;
+
 
         public SeleccionMenu()
         {
@@ -56,14 +59,27 @@ namespace MoveLegRef.Forms
             _ConsultaPaciente.Show();
             this.Hide();
         }
+        private void btnHistogramas_Click(object sender, EventArgs e)
+        {
+            _HistogramaResultados = new HistogramaResultados();
+            _HistogramaResultados.FormClosed += (s, args) => this.Show();
+
+            _HistogramaResultados.Show();
+            this.Hide();
+        }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void SeleccionMenu_Load(object sender, EventArgs e)
+        private void btnCompararResultados_Click(object sender, EventArgs e)
         {
+            _CompararResultados = new CompararResultados();
+            _CompararResultados.FormClosed += (s, args) => this.Show();
+
+            _CompararResultados.Show();
+            this.Hide();
         }
     }
 }

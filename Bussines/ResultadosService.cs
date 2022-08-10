@@ -70,5 +70,31 @@ namespace MoveLegRef.Bussines
 
             return serviceResponse;
         }
+        public ServiceResponse<List<Resultados>> ObtenerResultadosPorPaciente(int idPaciente)
+        {
+            ServiceResponse<List<Resultados>> serviceResponse = new ServiceResponse<List<Resultados>>();
+
+            string query = "SELECT [RepeticionesLogradasRodilla], [RepeticionesLogradasTobillo] " +
+                            "FROM [DB_MoveLeg].[dbo].[Sesion] INNER JOIN [DB_MoveLeg].[dbo].[Resultados] " +
+                            "ON [Resultados].[IDSesion] = [Sesion].[IDSesion] " +
+                            "WHERE [Sesion].[IDPaciente] = @idPaciente";
+            try
+            {
+                using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+                {
+                    //Dapper
+                    serviceResponse.Data = (List<Resultados>)sqlConnection.Query<Resultados>(query, new { idPaciente = idPaciente });
+                    serviceResponse.Message = "Retribucion de datos exitoso";
+                    serviceResponse.IsOk = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                serviceResponse.IsOk = false;
+                serviceResponse.Message = "Retribucion de datos fallida (ResultadosSesionService) " + ex.Message;
+            }
+            return serviceResponse;
+        }
+
     }
 }

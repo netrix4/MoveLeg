@@ -35,11 +35,13 @@ namespace MoveLegRef.Forms
             this.btnSesion = new System.Windows.Forms.Button();
             this.btnListadoPacientes = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.btnHistogramas = new System.Windows.Forms.Button();
+            this.btnCompararResultados = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAgregarPaciente
             // 
-            this.btnAgregarPaciente.Location = new System.Drawing.Point(167, 170);
+            this.btnAgregarPaciente.Location = new System.Drawing.Point(167, 130);
             this.btnAgregarPaciente.Name = "btnAgregarPaciente";
             this.btnAgregarPaciente.Size = new System.Drawing.Size(117, 23);
             this.btnAgregarPaciente.TabIndex = 0;
@@ -49,7 +51,7 @@ namespace MoveLegRef.Forms
             // 
             // btnNuevaSesion
             // 
-            this.btnNuevaSesion.Location = new System.Drawing.Point(167, 199);
+            this.btnNuevaSesion.Location = new System.Drawing.Point(167, 159);
             this.btnNuevaSesion.Name = "btnNuevaSesion";
             this.btnNuevaSesion.Size = new System.Drawing.Size(117, 23);
             this.btnNuevaSesion.TabIndex = 1;
@@ -59,7 +61,7 @@ namespace MoveLegRef.Forms
             // 
             // btnSesion
             // 
-            this.btnSesion.Location = new System.Drawing.Point(167, 228);
+            this.btnSesion.Location = new System.Drawing.Point(167, 188);
             this.btnSesion.Name = "btnSesion";
             this.btnSesion.Size = new System.Drawing.Size(117, 23);
             this.btnSesion.TabIndex = 2;
@@ -69,11 +71,11 @@ namespace MoveLegRef.Forms
             // 
             // btnListadoPacientes
             // 
-            this.btnListadoPacientes.Location = new System.Drawing.Point(167, 257);
+            this.btnListadoPacientes.Location = new System.Drawing.Point(167, 217);
             this.btnListadoPacientes.Name = "btnListadoPacientes";
             this.btnListadoPacientes.Size = new System.Drawing.Size(117, 23);
             this.btnListadoPacientes.TabIndex = 3;
-            this.btnListadoPacientes.Text = "Listado Pacientes";
+            this.btnListadoPacientes.Text = "Consulta Informacion";
             this.btnListadoPacientes.UseVisualStyleBackColor = true;
             this.btnListadoPacientes.Click += new System.EventHandler(this.btnListadoPacientes_Click);
             // 
@@ -87,11 +89,33 @@ namespace MoveLegRef.Forms
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // btnHistogramas
+            // 
+            this.btnHistogramas.Location = new System.Drawing.Point(167, 246);
+            this.btnHistogramas.Name = "btnHistogramas";
+            this.btnHistogramas.Size = new System.Drawing.Size(117, 23);
+            this.btnHistogramas.TabIndex = 5;
+            this.btnHistogramas.Text = "Histograma";
+            this.btnHistogramas.UseVisualStyleBackColor = true;
+            this.btnHistogramas.Click += new System.EventHandler(this.btnHistogramas_Click);
+            // 
+            // btnCompararResultados
+            // 
+            this.btnCompararResultados.Location = new System.Drawing.Point(167, 275);
+            this.btnCompararResultados.Name = "btnCompararResultados";
+            this.btnCompararResultados.Size = new System.Drawing.Size(117, 46);
+            this.btnCompararResultados.TabIndex = 6;
+            this.btnCompararResultados.Text = "Comparar Resultados";
+            this.btnCompararResultados.UseVisualStyleBackColor = true;
+            this.btnCompararResultados.Click += new System.EventHandler(this.btnCompararResultados_Click);
+            // 
             // SeleccionMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(450, 450);
+            this.Controls.Add(this.btnCompararResultados);
+            this.Controls.Add(this.btnHistogramas);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnListadoPacientes);
             this.Controls.Add(this.btnSesion);
@@ -103,7 +127,6 @@ namespace MoveLegRef.Forms
             this.Name = "SeleccionMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu de Seleccion";
-            this.Load += new System.EventHandler(this.SeleccionMenu_Load);
             this.ResumeLayout(false);
 
         }
@@ -115,5 +138,7 @@ namespace MoveLegRef.Forms
         private System.Windows.Forms.Button btnSesion;
         private System.Windows.Forms.Button btnListadoPacientes;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Button btnHistogramas;
+        private System.Windows.Forms.Button btnCompararResultados;
     }
 }
