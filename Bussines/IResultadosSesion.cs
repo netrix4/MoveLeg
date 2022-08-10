@@ -9,6 +9,7 @@ namespace MoveLegRef.Bussines
     {
         public ServiceResponse<int> AgregarResultadosSesion(Resultados resultados);
         public ServiceResponse<List<Resultados>> ObtenerResultados(int idSesion);
+        public ServiceResponse<List<Resultados>> ObtenerResultadosPorPaciente(int idPaciente);
 
     }
 }

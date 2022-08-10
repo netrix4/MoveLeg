@@ -9,7 +9,7 @@ namespace MoveLegRef.Bussines
     public class SocketService : ISocketService
     {
         private static readonly Socket serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-        private static readonly List<Socket> clientSockets = new List<Socket>();
+        private List<Socket> clientSockets = new List<Socket>();
         private const int BUFFER_SIZE = 2048;
         private static readonly byte[] buffer = new byte[BUFFER_SIZE];
         private int port = 5000;
@@ -378,9 +378,6 @@ namespace MoveLegRef.Bussines
             {
                 MessageBox.Show("El dispositivo esta desconectado");
             }
-
-            //}
-
         }
 
         private void EnviarRasp(string mensaje)

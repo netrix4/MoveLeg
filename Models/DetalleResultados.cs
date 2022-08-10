@@ -4,7 +4,8 @@ using System.Text;
 
 namespace MoveLegRef.Models
 {
-    class DetalleResultados
+    //Pronto de deprecar por falta de sentido su existencia
+    public class DetalleResultados
     {
     }
 }

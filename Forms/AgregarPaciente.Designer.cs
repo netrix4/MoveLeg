@@ -65,6 +65,7 @@ namespace MoveLegRef.Forms
             this.lblPatologiaAP = new System.Windows.Forms.Label();
             this.lblEdadAP = new System.Windows.Forms.Label();
             this.lblNombreAP = new System.Windows.Forms.Label();
+            this.bntSalir = new System.Windows.Forms.Button();
             this.gbAgregarPaciente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudEdadAP)).BeginInit();
             this.gbMedidasPiernas.SuspendLayout();
@@ -83,6 +84,7 @@ namespace MoveLegRef.Forms
             // 
             // gbAgregarPaciente
             // 
+            this.gbAgregarPaciente.Controls.Add(this.bntSalir);
             this.gbAgregarPaciente.Controls.Add(this.nudEdadAP);
             this.gbAgregarPaciente.Controls.Add(this.lblDatosPiernaAP);
             this.gbAgregarPaciente.Controls.Add(this.btnGuardarPaciente);
@@ -125,7 +127,7 @@ namespace MoveLegRef.Forms
             // 
             // btnGuardarPaciente
             // 
-            this.btnGuardarPaciente.Location = new System.Drawing.Point(616, 296);
+            this.btnGuardarPaciente.Location = new System.Drawing.Point(537, 295);
             this.btnGuardarPaciente.Name = "btnGuardarPaciente";
             this.btnGuardarPaciente.Size = new System.Drawing.Size(75, 23);
             this.btnGuardarPaciente.TabIndex = 16;
@@ -415,6 +417,16 @@ namespace MoveLegRef.Forms
             this.lblNombreAP.Text = "Nombre: ";
             this.lblNombreAP.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // bntSalir
+            // 
+            this.bntSalir.Location = new System.Drawing.Point(618, 295);
+            this.bntSalir.Name = "bntSalir";
+            this.bntSalir.Size = new System.Drawing.Size(75, 23);
+            this.bntSalir.TabIndex = 17;
+            this.bntSalir.Text = "Salir";
+            this.bntSalir.UseVisualStyleBackColor = true;
+            this.bntSalir.Click += new System.EventHandler(this.bntSalir_Click);
+            // 
             // AgregarPaciente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -484,5 +496,6 @@ namespace MoveLegRef.Forms
         private System.Windows.Forms.Label lblPatologiaAP;
         private System.Windows.Forms.Label lblEdadAP;
         private System.Windows.Forms.Label lblNombreAP;
+        private System.Windows.Forms.Button bntSalir;
     }
 }

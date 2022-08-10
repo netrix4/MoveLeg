@@ -63,5 +63,10 @@ namespace MoveLegRef.Forms
             AyudaVisualMedidas ayudaVisualMedidas = new AyudaVisualMedidas();
             ayudaVisualMedidas.Show();
         }
+
+        private void bntSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
