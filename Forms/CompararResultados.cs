@@ -2,6 +2,7 @@
 using MoveLegRef.Models;
 using OxyPlot;
 using OxyPlot.Axes;
+using OxyPlot.Legends;
 using OxyPlot.Series;
 using System;
 using System.Collections.Generic;
@@ -51,36 +52,34 @@ namespace MoveLegRef.Forms
         }
         internal void SetChartData(List<Resultados> chartDataResultados)
         {
+            int counter = 0;
             PlotModel chartPlotModel = new PlotModel();
+            Legend legend = new Legend();
 
-            chartPlotModel.Title = "Histograma de Resultados de Repeticiones";
+            chartPlotModel.Legends.Add(legend);
+            chartPlotModel.Title = "Progreso de resultado de paciente";
+            chartPlotModel.Subtitle = "Resultados por sesion";
+
+            LineSeries lineSeriesRepRodilla = new LineSeries { Title = "Repeticiones Rodilla", MarkerType = MarkerType.Triangle };
+            LineSeries lineSeriesRepTobillo = new LineSeries { Title = "Repeticiones Tobillo", MarkerType = MarkerType.Diamond, };
+
+            lineSeriesRepRodilla.Points.Add(new DataPoint(0,0));
+            lineSeriesRepTobillo.Points.Add(new DataPoint(0,0));
+
             foreach (var item in chartDataResultados)
             {
-                var barSeries = new BarSeries
-                {
-                    ItemsSource = new List<BarItem>(new[]
-                     {
-                        new BarItem { Value = Convert.ToDouble(item.RepeticionesLogradasRodilla) },
-                        new BarItem { Value = Convert.ToDouble(item.RepeticionesLogradasTobillo) },
-                    }),
 
-                    LabelPlacement = LabelPlacement.Inside,
-                    LabelFormatString = "{0}"
-                };
+                lineSeriesRepRodilla.Points.Add(new DataPoint(counter + 1, item.RepeticionesLogradasRodilla));
+                lineSeriesRepTobillo.Points.Add(new DataPoint(counter + 1, item.RepeticionesLogradasTobillo));
 
-                chartPlotModel.Series.Add(barSeries);
+                counter++;
             }
 
-            chartPlotModel.Axes.Add(new CategoryAxis
-            {
-                Position = AxisPosition.Left,
-                Key = "EjeCamposResultados",
-                ItemsSource = new[]
-                {
-                    "Repeticiones Logradas Rodilla",
-                    "Repeticiones Logradas Tobillo",
-                }
-            });
+            counter = 0;
+
+            chartPlotModel.Series.Add(lineSeriesRepRodilla);
+            chartPlotModel.Series.Add(lineSeriesRepTobillo);
+
             pvContenido.Model = chartPlotModel;
         }
     }
