@@ -45,6 +45,7 @@ namespace MoveLegRef.Forms
             this.lblRepLogRod = new System.Windows.Forms.Label();
             this.lblTTS = new System.Windows.Forms.Label();
             this.btnResultados = new System.Windows.Forms.Button();
+            this.btnGenerarPDF = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSesiones)).BeginInit();
             this.gbResultados.SuspendLayout();
             this.SuspendLayout();
@@ -130,6 +131,7 @@ namespace MoveLegRef.Forms
             // 
             // gbResultados
             // 
+            this.gbResultados.Controls.Add(this.btnGenerarPDF);
             this.gbResultados.Controls.Add(this.lblTTSValor);
             this.gbResultados.Controls.Add(this.lblRepLogRodVal);
             this.gbResultados.Controls.Add(this.lblRepLogTobVal);
@@ -208,6 +210,16 @@ namespace MoveLegRef.Forms
             this.btnResultados.UseVisualStyleBackColor = true;
             this.btnResultados.Click += new System.EventHandler(this.btnResultados_Click);
             // 
+            // btnGenerarPDF
+            // 
+            this.btnGenerarPDF.Location = new System.Drawing.Point(782, 42);
+            this.btnGenerarPDF.Name = "btnGenerarPDF";
+            this.btnGenerarPDF.Size = new System.Drawing.Size(75, 23);
+            this.btnGenerarPDF.TabIndex = 11;
+            this.btnGenerarPDF.Text = "PDF";
+            this.btnGenerarPDF.UseVisualStyleBackColor = true;
+            this.btnGenerarPDF.Click += new System.EventHandler(this.btnGenerarPDF_Click);
+            // 
             // ConsultaPaciente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -250,5 +262,6 @@ namespace MoveLegRef.Forms
         private System.Windows.Forms.Label lblRepLogTob;
         private System.Windows.Forms.Label lblRepLogRod;
         private System.Windows.Forms.Button btnResultados;
+        private System.Windows.Forms.Button btnGenerarPDF;
     }
 }

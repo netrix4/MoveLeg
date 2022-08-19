@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using MoveLegRef.Bussines;
 using MoveLegRef.Models;
+using IronPdf;
 
 namespace MoveLegRef.Forms
 {
@@ -95,6 +96,58 @@ namespace MoveLegRef.Forms
             {
                 MessageBox.Show("Cargue resultados primero");
             }
+        }
+
+        private void btnGenerarPDF_Click(object sender, EventArgs e)
+        {
+
+            if (_resultadosResponse.IsOk && _resultadosResponse.Data.Count != 0)
+            {
+                string pdfstring = BuildPDFString();
+
+                var Renderer = new IronPdf.ChromePdfRenderer();
+                using var pdf = Renderer.RenderHtmlAsPdf(pdfstring);
+
+                try
+                {
+                    pdf.SaveAs("C:/Users/PC/Desktop/Reporte-de-Paciente.pdf");
+                    MessageBox.Show("Reporte creado con exito");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Algo salio mal");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Cargue resultados primero");
+            }
+        }
+        internal string BuildPDFString()
+        {
+            var paciente = cbSeleccPaciente.SelectedItem as Paciente;
+            var sesiones = _sesionesResponse.Data;
+            var resultados = _resultadosResponse.Data;
+
+            string pdfString = "REPORTE POR PACIENTE<br><br>Nombre: " + paciente.Nombre + "<br>Edad: " + paciente.Edad +
+                                "<br>Patologia: " + paciente.Patologia + "<br>Pierna afectada: "
+                                + paciente.PiernaAfectada + "<br><br>SESIONES<br>";
+            foreach (var item in sesiones)
+            {
+                pdfString += "<br>Repeticiones deseadas (rodilla): " + item.RepeticionesRodilla.ToString() +
+                            "<br>Repeticiones deseadas (tobillo): " + item.RepeticionesTobillo.ToString();
+            }
+
+            pdfString += "<br><br>RESULTADOS CORRESPONDIENTES <br><br>";
+
+            foreach (var item in resultados)
+            {
+                pdfString += "Repeticiones logradas rodilla: " + item.RepeticionesLogradasRodilla.ToString() +
+                             "<br>Repeticiones logradas tobillo: " + item.RepeticionesLogradasTobillo.ToString() +
+                             "<br>Tiempor transcurrido: " + item.TiempoTranscurrido.ToString() + "<br>";
+            }
+
+            return pdfString;
         }
     }
 }
